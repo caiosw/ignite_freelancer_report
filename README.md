@@ -4,7 +4,7 @@ This is an Elixir project from Rocketseat's Ignite course (Chapter 1, module 2)
 
 The project's goal is to create a Map report from a CSV file, aggregating the results as bellow:
 
-Input file format: 
+Input file format: \
 Daniele,7,29,4,2018\
 Mayk,4,9,12,2019\
 Daniele,5,27,12,2016\
