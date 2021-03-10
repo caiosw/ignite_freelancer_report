@@ -28,7 +28,7 @@ Diego,4,15,8,2017\
 
 Expected output:
 
-  %{\
+ %{\
    all_hours: %{\
      "Cleiton" => 4,\
      "Daniele" => 21,\
@@ -59,4 +59,4 @@ Expected output:
      "Joseph" => %{"2017" => 3},\
      "Mayk" => %{"2016" => 7, "2017" => 8, "2019" => 4}\
    }\
-  }\
+ }
