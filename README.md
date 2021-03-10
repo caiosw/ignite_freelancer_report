@@ -29,7 +29,7 @@ Diego,4,15,8,2017
 ```
 
 Expected output:
-```
+```elixir
  %{
    all_hours: %{
      "Cleiton" => 4,
