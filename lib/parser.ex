@@ -1,8 +1,17 @@
 defmodule FreelancerReport.Parser do
   def parse_file(filename) do
-    "reports/#{filename}"
-    |> File.stream!()
-    |> Enum.map(&parse_line/1)
+    filepath = "reports/#{filename}"
+
+    if File.exists?(filepath) do
+      result =
+        filepath
+        |> File.stream!()
+        |> Enum.map(&parse_line/1)
+
+      {:ok, result}
+    else
+      {:error, "File not found!"}
+    end
   end
 
   defp parse_line(line) do
