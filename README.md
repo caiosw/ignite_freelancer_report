@@ -5,7 +5,7 @@ This is an Elixir project from Rocketseat's Ignite course (Chapter 1, module 2)
 The project's goal is to create a Map report from a CSV file, aggregating the results as bellow:
 
 Input file format: \
-...
+```
 Daniele,7,29,4,2018\
 Mayk,4,9,12,2019\
 Daniele,5,27,12,2016\
@@ -26,10 +26,10 @@ Mayk,7,28,7,2017\
 Mayk,7,3,9,2016\
 Danilo,6,28,2,2019\
 Diego,4,15,8,2017\
-...
+```
 
 Expected output:
-...
+```
  %{\
    all_hours: %{\
      "Cleiton" => 4,\
@@ -62,4 +62,4 @@ Expected output:
      "Mayk" => %{"2016" => 7, "2017" => 8, "2019" => 4}\
    }\
  }
- ...
+```
