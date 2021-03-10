@@ -26,38 +26,35 @@ defmodule FreelancerReport do
   defp handle_file({:error, reason}), do: {:error, reason}
 
   defp aggregate_lines(file) do
-    report =
-      Enum.reduce(file, report_acc(), fn [name, hours, _day, month, year], acc ->
-        acc = create_if_not_exists(acc, name)
+    Enum.reduce(file, report_acc(), fn [name, hours, _day, month, year], acc ->
+      acc = create_if_not_exists(acc, name)
 
-        month_name = @months[month]
+      month_name = @months[month]
 
-        %{
-          all_hours: _all,
-          hours_per_month: months,
-          hours_per_year: years
-        } = acc
+      %{
+        all_hours: _all,
+        hours_per_month: months,
+        hours_per_year: years
+      } = acc
 
-        all = Map.put(acc.all_hours, name, acc.all_hours[name] + hours)
+      all = Map.put(acc.all_hours, name, acc.all_hours[name] + hours)
 
-        user_months =
-          Map.put(
-            acc.hours_per_month[name],
-            month_name,
-            zero_if_nil(acc.hours_per_month[name][month_name]) + hours
-          )
+      user_months =
+        Map.put(
+          acc.hours_per_month[name],
+          month_name,
+          zero_if_nil(acc.hours_per_month[name][month_name]) + hours
+        )
 
-        user_years =
-          Map.put(
-            acc.hours_per_year[name],
-            year,
-            zero_if_nil(acc.hours_per_year[name][year]) + hours
-          )
+      user_years =
+        Map.put(
+          acc.hours_per_year[name],
+          year,
+          zero_if_nil(acc.hours_per_year[name][year]) + hours
+        )
 
-        build_report(all, %{months | name => user_months}, %{years | name => user_years})
-      end)
-
-    {:ok, report}
+      build_report(all, %{months | name => user_months}, %{years | name => user_years})
+    end)
   end
 
   defp create_if_not_exists(acc, name) do
